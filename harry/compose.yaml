@@ -1,0 +1,13 @@
+services:
+  hdev:
+    build:
+      context: .
+      target: dev
+      dockerfile: Dockerfile
+    image: hdev:dev
+    container_name: hdev
+    volumes:
+      - ./:/app
+    ports:
+      - "3000:3000"
+
