@@ -1,12 +1,12 @@
 @import "tailwindcss";
 @font-face {
-  font-family: 'Lumos';
-  src: url('./assets/fonts/lumos.TTF') format('truetype');
+  font-family: 'lumos';
+  src: url('./lumos.TTF') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 .lumos {
-  font-family: 'Lumos' sans-serif;
+  font-family: 'lumos', sans-serif;
   font-size: xx-large;
 }
