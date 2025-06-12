@@ -49,7 +49,7 @@ mainDiv.className = 'grid grid-cols-5 gap-6 p-10'
 
 const h1: HTMLHeadingElement = document.createElement('h1')
 h1.className = 'flex items-center justify-center text-5xl pt-10 drop-shadow-[0_0_5px_white] mt-30'
-h1.textContent = "Élève de l'école de Poudlard"
+h1.textContent = "Élèves de l'école de Poudlard"
 
 header()
 app.appendChild(h1)
@@ -130,27 +130,83 @@ class DetailCharacter {
   }
 }
 
-function characterDetail(char: Character): void {
+async function characterDetail(char: Character) {
   while (app.firstChild) {
     app.removeChild(app.firstChild)
   }
 
   header()
 
-  const h1: HTMLHeadingElement = document.createElement('h1')
-  h1.className = 'flex items-center justify-center text-5xl pt-10 drop-shadow-[0_0_5px_white] mt-30'
-  h1.textContent = 'Détail du sorcier !'
+  const res = await fetch("https://hp-api.onrender.com/api/characters")
+  const allCharacters = await res.json()
+
+  const data = allCharacters.find((perso: any) => perso.name === char.name)
+
+  const detail = new DetailCharacter(
+    data.image,
+    data.name,
+    data.house,
+    data.alternate_names[0] || "Aucun",
+    data.dateOfBirth || "Inconnue",
+    data.yearOfBirth || "Inconnue",
+    data.species || "Inconnue",
+    data.gender || "Inconnu",
+    data.ancestry || "Inconnu",
+    data.hairColour || "Inconnu",
+    data.eyeColour || "Inconnu",
+    data.alive,
+    data.actor || "Inconnu"
+  )
+
+  const titre = document.createElement("h1")
+  titre.textContent = `Détail de ${detail.name}`
+  titre.className = "text-white text-4xl mt-20 text-center mt-30 text-shadow-lg/30"
+  app.appendChild(titre)
+
+  const wrapper = document.createElement("div")
+  wrapper.className = "flex justify-center mt-10"
 
   const card: HTMLDivElement = document.createElement("div")
-  card.className =
-    "bg-black bg-opacity-50 rounded-lg p-6 m-4 max-w-xs text-white shadow-lg flex flex-col items-center justify-center border-4 border-white-500 hover:bg-sky-700 hover:cursor-pointer transition-transform duration-300 transform hover:scale-105"
+  card.className ="bg-black bg-opacity-50 rounded-lg p-6 m-4 text-white shadow-lg flex flex-col items-center justify-center border-4 border-white-500"
 
-  app.appendChild(h1)
-  app.appendChild(card)
+  wrapper.appendChild(card)
+  app.appendChild(wrapper)
+    const img = document.createElement("img")
+    img.src = detail.image
+    img.alt = detail.name
+    img.className = "w-40 h-40 rounded-full object-cover mb-4"
+    card.appendChild(img)
+
+    const details = [
+    `Nom : ${detail.name}`,
+    `Maison : ${detail.house}`,
+    `Nom alternatif : ${detail.alternateName}`,
+    `Année de naissance : ${detail.yearBirth}`,
+    `Date de naissance : ${detail.birth}`,
+    `Acteur : ${detail.actor}`,
+    `Espèce : ${detail.espece}`,
+    `Sexe : ${detail.genre}`,
+    `Ancêtre : ${detail.ancetre}`,
+    `Cheveux : ${detail.hair}`,
+    `Yeux : ${detail.eye}`,
+    `En vie : ${detail.isAlive ? "Oui" : "Non"}`
+    ]
+
+    for (const detail of details) {
+      const p = document.createElement("p")
+      p.textContent = detail
+      p.className = "mb-1 p-1 text-4xl text-white"
+      card.appendChild(p)
+    }
+
+    footer()
 }
 
-const footer = document.createElement('footer')
-footer.className = 'bg-blue-900 text-white text-center py-4'
-footer.textContent = 'Petitjean Quentyn'
+function footer():void {
+  const footer = document.createElement('footer')
+  footer.className = 'bg-blue-900 text-white text-center py-4'
+  footer.textContent = '© Petitjean Quentyn'
+  app.appendChild(footer)
+}
 
-app.appendChild(footer)
+footer()
