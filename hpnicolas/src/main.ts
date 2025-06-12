@@ -1,24 +1,70 @@
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+class Perso {
+  name: string;
+  birth: string;
+  gender: string;
+
+  constructor(name: string, birth: string, gender: string) {
+    this.name = name;
+    this.birth = birth;
+    this.gender = gender;
+  }
+
+  display(): void {
+    let name: string = this.name
+    let birth: string = this.birth
+    let gender: string = this.gender
+
+    let divPerso = document.createElement("div")
+    divPerso.id = "perso"
+
+      let nameContent = document.createElement("div")
+      nameContent.id = "nameContent"
+      nameContent.textContent = name
+      divPerso.appendChild(nameContent)
+
+      let birthContent = document.createElement("div")
+      birthContent.id = "birthContent"
+      birthContent.textContent = birth
+      divPerso.appendChild(birthContent)
+
+      let genderContent = document.createElement("div")
+      genderContent.id = "genderContent"
+      genderContent.textContent = gender
+      divPerso.appendChild(genderContent)
+    
+      document.body.appendChild(divPerso)
+  }
+}
+
+const fetchAPIChar = async (): Promise<any[]> => {
+  const res = await fetch("https://hp-api.onrender.com/api/characters");
+  const chars = await res.json();
+  return chars;
+};
+
+const charsList = async () => {
+  const rawChars = await fetchAPIChar();
+
+  const persos: Perso[] = rawChars.map((char: any) => {
+    if (!char.dateOfBirth) {
+      char.dateOfBirth = null
+    }
+    
+    if (!char.gender) {
+      char.gender = null
+    }  
+    
+    return new Perso(char.name, char.dateOfBirth, char.gender);
+  });
+
+  persos.forEach(p => p.display());
+};
+
+charsList();
+
+
+
+
