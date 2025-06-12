@@ -1,0 +1,12 @@
+services:
+  harrypotter:
+    build:
+      context: .
+      target: dev
+      dockerfile: Dockerfile
+    image: harrypotter:dev
+    container_name: harrypotter_dev
+    volumes:
+      - ./:/app
+    ports:
+      - "3000:3000"
