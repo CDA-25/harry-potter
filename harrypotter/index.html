@@ -8,19 +8,28 @@
   </head>
   <body>
     <div id="app">
-      <header id="header">
-        <ul class="flex justify-between items-center">
+      <header class="bg-amber-100" id="header">
+        <ul class="flex justify-between items-center ml-3.5 mr-3.5">
           <img class="h-12" src="/src/assets/img/logo.png" alt="">
-          <li class="lumos"><a href="index.html">Accueil</a></li>
-          <li class="lumos"><a href="maisons.html">Maisons</a></li>
-          <li class="lumos"><a href="films.html">Films</a></li>
-          <li class="lumos"><a href="livres.html">Livres</a></li>
-          <div>
+          <li class="magik"><a href="index.html">Accueil</a></li>
+          <li class="magik"><a href="maisons.html">Maisons</a></li>
+          <li class="magik"><a href="films.html">Films</a></li>
+          <li class="magik"><a href="livres.html">Livres</a></li>
+          <div class="bg-white rounded-2xl pl-3">
             <button type="submit">🔍</button>
-            <input type="search" name="q" placeholder="Rechercher...">
+            <span class="border-r-1"></span>
+            <input class="ml-1.5" type="search" name="q" placeholder="Rechercher...">
           </div>
         </ul>
       </header>
+      <img class="w-full" src="./src/assets/img/banner4x.jpg" alt="Banner of Harry potter's characters">
+      <div id="card-container">
+      </div>
+      <footer>
+        <div class="bg-blue-950">
+
+        </div>
+      </footer>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>

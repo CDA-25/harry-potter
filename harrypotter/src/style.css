@@ -1,12 +1,13 @@
 @import "tailwindcss";
 @font-face {
-  font-family: 'lumos';
-  src: url('./lumos.TTF') format('truetype');
+  font-family: 'magik';
+  src: url('./assets/fonts/Magik.TTF') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-.lumos {
-  font-family: 'lumos', sans-serif;
+.magik {
+  font-family: 'magik', sans-serif;
   font-size: xx-large;
+  color: black;
 }
