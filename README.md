@@ -6,6 +6,7 @@
 ## Contraintes
 - Utiliser Docker pour que votre maitre de cérémonie puisse installer facilement le projet sur sont ordi
 - Installer et utiliser vitejs
+- Installer et utiliser tailwind (regarder la [doc](https://tailwindcss.com/docs/installation/using-vite), utiliser l'installation qui vous concerne)
 - Utiliser TS avec vitejs
 - Utiliser des class pour construire vos objets
 
