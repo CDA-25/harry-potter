@@ -1,0 +1,12 @@
+services:
+  harryfaitdutrotteurapi:
+    build:
+      context: .
+      target: dev
+      dockerfile: Dockerfile
+    image: harryfaitdutrotteurapi:dev
+    container_name: harryfaitdutrotteurapi
+    volumes:
+      - ./:/app
+    ports:
+      - "4563:4563"
