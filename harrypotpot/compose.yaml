@@ -1,0 +1,12 @@
+services:
+  harry:
+    build:
+      context: .
+      target: dev
+      dockerfile: Dockerfile
+    image: harry:dev
+    container_name: harry_dev
+    volumes:
+      - ./:/app
+    ports:
+      - "3000:3000"
