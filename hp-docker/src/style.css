@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: "Howdybun";
+    src: url(/hp-docker/public/assets/fonts/Howdybun.ttf) format("truetype");
+}
+
+h1 {
+    font-family: "Howdybun", sans-serif;
+    font-size: 2.5rem;
+}
+
