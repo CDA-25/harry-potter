@@ -4,10 +4,24 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Harry PasteK</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <header id="header">
+        <ul class="flex justify-between items-center">
+          <img class="h-12" src="/src/assets/img/logo.png" alt="">
+          <li class="lumos">Accueil</li>
+          <li>Maisons</li>
+          <li>Films</li>
+          <li>Livres</li>
+          <div>
+            <button type="submit">🔍</button>
+            <input type="search" name="q" placeholder="Rechercher...">
+          </div>
+        </ul>
+      </header>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

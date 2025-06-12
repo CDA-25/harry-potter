@@ -14,7 +14,7 @@ COPY . .
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 # séparation d'un espace, le 1er ce qu'il y a dans l'ordi, et après l'espace ce qu'il y a dans le conteneur (là on lui donne un path absolu)
 RUN chmod +x /usr/local/bin/entrypoint.sh
-EXPOSE 3000 
+EXPOSE 5173 
 # notre conteneur a le droit d'exposer sur le port 3000 (tu peux bien sur le port que tu veux)
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 # à la création du conteneur tu executes ce qu'il y a entre []
