@@ -78,6 +78,4 @@ document.querySelector<HTMLDivElement>('#S-2')!.innerHTML = `<section class="bg-
 
 
 
-
-
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
