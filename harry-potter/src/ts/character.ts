@@ -55,7 +55,7 @@ export default class Character {
     this.alternateNames = data.alternate_names
     this.species = data.species
     this.gender = data.gender
-    this.house = data.house
+    this.house = data.house || "Pas de maison ce clochard là mdrrrr"
     this.dateOfBirth = data.dateOfBirth
     this.yearOfBirth = data.yearOfBirth
     this.wizard = data.wizard
@@ -66,7 +66,7 @@ export default class Character {
     this.patronus = data.patronus
     this.hogwartsStudent = data.hogwartsStudent
     this.hogwartsStaff = data.hogwartsStaff
-    this.actor = data.actor
+    this.actor = data.actor || "personne la tchim"
     this.alternateActors = data.alternate_actors
     this.alive = data.alive
     this.image = data.image

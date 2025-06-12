@@ -1,5 +1,5 @@
 export default class Tool {
-  private element: HTMLElement | null
+  public element: HTMLElement | null
 
   constructor() {
     this.element = null
