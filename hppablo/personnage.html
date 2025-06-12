@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/image/logoHP.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harry Potter</title>
+  </head>
+  <body>
+
+    <header id="header" class="bg-[#530404] pt-4 pb-0">
+
+      <div id="nav"></div>
+
+    </header>
+
+    <section class="relative">
+        <img src="/src/image/banner2.png" alt="Bannière" class="w-full" />
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Cherche un personnage..."
+            class="absolute top-30 left-167 w-1/3 p-2 border rounded bg-[#530404] text-white"
+        />
+        <ul
+            id="results"
+            class="w-1/3 space-y-4"
+            >
+            <!-- Les résultats apparaîtront ici -->
+        </ul>
+    </section>
+
+
+
+    <div id="pokemon-container" class="pokemon-grid"></div>
+
+
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/pesonnage.ts"></script>
+    <script type="module" src="/js.js"></script>
+  </body>
+</html>
+
