@@ -1,0 +1,12 @@
+services:
+  harry-potter-ilhan-le-bg:
+    build:
+      context: .
+      target: dev
+      dockerfile: DockerFile
+    image: harry-potter-ilhan-le-bg:dev
+    container_name: harry-potter-ilhan-le-bg_dev
+    volumes:
+      - ./:/app
+    ports:
+      - "3000:3000"
