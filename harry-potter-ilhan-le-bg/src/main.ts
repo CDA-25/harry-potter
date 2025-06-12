@@ -21,10 +21,58 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 `
 
-const header = document.createElement("header");
-header.classList.add("headerMaGueule")
+// class headers {
+//   logo: string;
+//   nomAppli: string;
+//   constructor() {
+//     this.logo = "/src/img/ana.webp";
+//     this.nomAppli = "ana la reine je te bouffe les pieds bae";
+//   }
+// addLogo(): HTMLImageElement {
+//   const logoo = document.createElement("img")
+//   logoo.classList.add("logoHeader")
+//   logoo.src = this.logo
+//   return logoo;
+// }
+
+// addAppliName(): HTMLHeadingElement {
+//   const name = document.createElement("h2")
+//   name.classList.add("appliNameHeader")
+//   name.textContent = this.nomAppli
+//   return name;
+// }
+
+// addButton() {
+//   for (let i = 0; i<4; i++) {
+//     const button = document.createElement("button")
+//     button.classList.add("buttonHeader")
+//   }
+// }
+
+// createHeader(): HTMLElement {
+//   const header = document.createElement("header")
+//   header.classList.add("header")
+//   header.append(this.addLogo(), this.addAppliName())
+//   return header;
+// }
+// }
+
+// const headerPageAccueil = new headers()
 
 
+import { ToolBox } from './toolBox.ts'
+
+const header  = ToolBox.createHeader("header")
+ToolBox.createImage("/src/img/ana.webp", "headerImage", header)
+ToolBox.createH1("Abi Potter", "h1Header", header)
+const divButtonHeader = ToolBox.createDiv("divButtonHeader", header)
+ToolBox.createButtonA("Accueil", "buttonAccueilHeader", divButtonHeader)
+ToolBox.createButtonA("Les maisons", "buttonMaisonHeader", divButtonHeader)
+ToolBox.createButtonA("Les Films", "buttonFilmHeader", divButtonHeader)
+ToolBox.createButtonA("Les Livres", "buttonLivreHeader", divButtonHeader)
+
+
+document.body.prepend(header)
 
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
