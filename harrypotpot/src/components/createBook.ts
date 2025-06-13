@@ -29,7 +29,7 @@ export function createBook(book: HarryPotterBook): HTMLElement {
     summary.classList.add('text-lg', 'mb-4', 'italic')
 
     const releaseDate = document.createElement('p')
-    releaseDate.textContent = `Date de sortie : ${book.release_date}`
+    releaseDate.textContent = `Date de sortie : ${book.release_date || 'Inconnue'} `
     releaseDate.classList.add('mb-2')
 
     const dedication = document.createElement('p')
