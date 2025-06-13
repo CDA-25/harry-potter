@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <div class="container mx-auto p-4" style="max-width: 1180px;">
+    <a href="maisons.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 inline-block">
+      Retour aux maisons
+    </a>
+    <h1 class="text-3xl font-bold mb-4">Personnages de la maison <span id="house-name"></span></h1>
+    <div id="house-characters-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <!-- Les cartes des personnages seront injectées ici -->
+    </div>
+  </div>
+  <script type="module" src="/src/maisons_details.ts"></script>
+<footer class="bg-white shadow mt-8 py-4">
+    <div class="container mx-auto px-4">
+      <p class="text-center text-gray-600">
+        &copy; Site réalisé pour la formation de concepteur d'application -
+        <a href="https://taaazzz.be" target="_blank" class="text-blue-600 hover:underline">Taaazzz-prog</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
