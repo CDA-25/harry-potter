@@ -49,8 +49,8 @@ function header() {
 //==================================================MAISON=============================================
 
 
-  linkMaison.addEventListener("click", async (e) => {
-    e.preventDefault(); 
+  linkMaison.addEventListener("click", async(e)=>{
+    e.preventDefault()
   
     while (app.firstChild) {
       app.removeChild(app.firstChild);
@@ -65,7 +65,7 @@ function header() {
     const title:HTMLHeadingElement = document.createElement("h1")
     title.textContent = "Les 4 Maisons de Poudlard"
     title.className = "text-4xl mt-30 text-center drop-shadow-[0_0_5px_white]"
-    app.appendChild(title);
+    app.appendChild(title)
   
   
     const container:HTMLDivElement = document.createElement("div")
@@ -74,7 +74,7 @@ function header() {
   
     maisons.forEach((maison: any) => {
       const carte:HTMLDivElement = document.createElement("div")
-      carte.className = "bg-black bg-opacity-50 text-white p-15 rounded-lg shadow-md flex items-center justify-center hover:cursor-pointer transition-transform duration-300 transform hover:scale-105"
+      carte.className = "bg-black bg-opacity-50 text-white text-4xl p-15 rounded-lg shadow-md flex items-center justify-center hover:cursor-pointer transition-transform duration-300 transform hover:scale-105"
   
   
       const name:HTMLHeadingElement = document.createElement("h2")
@@ -88,6 +88,117 @@ function header() {
     app.appendChild(container)
     
   });
+
+
+  //====================================================FILMS===================================================
+
+
+  linkFilms.addEventListener("click", async(e)=>{
+    e.preventDefault()
+
+    while(app.firstChild){
+      app.removeChild(app.firstChild)
+    }
+
+    header()
+
+    const res = await fetch("https://potterhead-api.vercel.app/api/movies")
+    const films = await res.json()
+
+    const title:HTMLHeadingElement = document.createElement("h1")
+    title.textContent = "Tous les films"
+    title.className = "text-4xl mt-30 text-center drop-shadow-[0_0_5px_white]"
+    app.appendChild(title)
+
+    const container:HTMLDivElement = document.createElement("div")
+    container.className = "grid grid-cols-2 gap-6 p-10"
+
+    films.forEach((films:any)=> {
+
+      const img: HTMLImageElement = document.createElement("img")
+      img.src = films.poster
+      img.alt = "Image du film"
+      img.className = "w-80"
+
+      const name:HTMLHeadingElement = document.createElement("h2")
+      name.textContent = films.title
+      name.className = "text-white text-2xl font-bold mb-2"
+
+      const carte:HTMLDivElement = document.createElement("div")
+      carte.className = "bg-black bg-opacity-50 text-while p-15 rounded-lg shadow-md flex items-center justify-center flex-col"
+
+
+      const year:HTMLParagraphElement = document.createElement("p")
+      year.textContent = `Date de sortie: ${films.release_date}`
+      year.className = "text-white"
+
+      const budget:HTMLParagraphElement = document.createElement("p")
+      budget.textContent = `Budget: ${films.budget}`
+      budget.className = "text-white"
+
+      carte.appendChild(img)
+      carte.appendChild(name)
+      carte.appendChild(year)
+      carte.appendChild(budget)
+      container.appendChild(carte)
+    })
+
+    app.appendChild(container)
+
+    footer()
+  })
+
+
+  //==================================LIVRE===================================================
+
+  linkLivres.addEventListener("click", async(e)=>{
+    e.preventDefault()
+
+    while(app.firstChild){
+      app.removeChild(app.firstChild)
+    }
+    
+    header()
+
+    const res = await fetch("https://potterhead-api.vercel.app/api/books")
+    const livres = await res.json()
+
+    const title:HTMLHeadElement = document.createElement("h1")
+    title.textContent = "Tous les livres"
+    title.className = "text-4xl mt-30 text-center drop-shadow-[0_0_5px_white]"
+    app.appendChild(title)
+
+    const container:HTMLDivElement = document.createElement("div")
+    container.className = "grid grid-cols-2 gap-6 p-10"
+
+    livres.forEach((livre:any)=>{
+      const img:HTMLImageElement = document.createElement("img")
+      img.src = livre.cover
+      img.alt = "Couverture du livre"
+      img.className = "w-80"
+
+      const name:HTMLHeadingElement = document.createElement("h2")
+      name.textContent = livre.title
+      name.className = "text-white text-2xl font-bold mb-2"
+
+      const carte:HTMLDivElement = document.createElement("div")
+      carte.className = "bg-black bg-opacity-50 text-while p-15 rounded-lg shadow-md flex items-center justify-center flex-col"
+
+      const page:HTMLParagraphElement = document.createElement("p")
+      page.textContent = `Nombre de page: ${livre.pages}`
+      page.className = "text-white"
+
+      const year:HTMLParagraphElement = document.createElement("p")
+      year.textContent = `Sortie le: ${livre.release_date}`
+
+      carte.appendChild(img)
+      carte.appendChild(name)
+      carte.appendChild(page)
+      carte.appendChild(year)
+      container.appendChild(carte)
+    })
+    app.appendChild(container)
+  })
 }
 
 
