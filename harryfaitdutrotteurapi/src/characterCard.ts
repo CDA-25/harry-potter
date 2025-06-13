@@ -13,14 +13,9 @@ export class CharacterCard {
 
     public createCard(): HTMLAnchorElement {
         const card = document.createElement('a');
-        let href;
-        if (this.fromPage === 'maisons') {
-            href = `maisons_details.html?id=${this.character.id}&house=${this.houseName}`;
-        } else {
-            href = `details.html?id=${this.character.id}`;
-            if (this.houseName) {
-                href += `&house=${this.houseName}`;
-            }
+        let href = `details.html?id=${this.character.id}&from=${this.fromPage}`;
+        if (this.houseName) {
+            href += `&house=${this.houseName}`;
         }
         card.href = href;
         

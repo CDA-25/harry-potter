@@ -9,14 +9,23 @@ class CharacterDetailsPage {
         const urlParams = new URLSearchParams(window.location.search);
         const characterId = urlParams.get('id');
         const house = urlParams.get('house');
+        const from = urlParams.get('from');
 
         const backLink = document.getElementById('back-link') as HTMLAnchorElement;
-        if (house) {
-            backLink.href = `index.html?house=${house}`;
+
+        if (from === 'maisons') {
+            backLink.href = `maisons.html`;
+            if (house) {
+                backLink.href += `?house=${house}`;
+            }
+            backLink.textContent = `Retour aux maisons`;
         } else {
             backLink.href = 'index.html';
+            if (house) {
+                backLink.href += `?house=${house}`;
+            }
+            backLink.textContent = `Retour à l'accueil`;
         }
-        backLink.textContent = "Retour à l'accueil";
 
         if (characterId) {
             const character = await this.apiService.getCharacterById(characterId);
