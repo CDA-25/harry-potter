@@ -1,69 +1,209 @@
 import './style.css'
 
 
-class Perso {
-  name: string;
-  birth: string;
-  gender: string;
+let currentURL: string = window.location.pathname
 
-  constructor(name: string, birth: string, gender: string) {
-    this.name = name;
-    this.birth = birth;
-    this.gender = gender;
+switch (currentURL) {
+  case "/accueil.html": {
+    console.log("accueil")
+
+    break;
   }
 
-  display(): void {
-    let name: string = this.name
-    let birth: string = this.birth
-    let gender: string = this.gender
+  case "/perso.html": {
+    document.body.classList.add("bg-gray-800")
 
-    let divPerso = document.createElement("div")
-    divPerso.id = "perso"
 
-      let nameContent = document.createElement("div")
-      nameContent.id = "nameContent"
-      nameContent.textContent = name
-      divPerso.appendChild(nameContent)
+    class Perso {
+      name: string;
+      birth: string;
+      gender: string;
 
-      let birthContent = document.createElement("div")
-      birthContent.id = "birthContent"
-      birthContent.textContent = birth
-      divPerso.appendChild(birthContent)
+      constructor(name: string, birth: string, gender: string) {
+        this.name = name;
+        this.birth = birth;
+        this.gender = gender;
+      }
 
-      let genderContent = document.createElement("div")
-      genderContent.id = "genderContent"
-      genderContent.textContent = gender
-      divPerso.appendChild(genderContent)
-    
-      document.body.appendChild(divPerso)
+      display(): void {
+        let name: string = this.name
+        let birth: string = this.birth
+        let gender: string = this.gender
+
+        
+        let divPerso = document.createElement("div")
+        divPerso.id = "perso"
+        divPerso.classList.add(
+          "bg-blue-200",
+          "p-[15px]",
+          "border",
+          "flex",
+          "justify-between",
+          "items-center",
+          "w-200",
+          "rounded",
+          "m-10"
+        )
+
+
+          let nameContent = document.createElement("div")
+          nameContent.id = "nameContent"
+          nameContent.textContent = name
+          divPerso.appendChild(nameContent)
+
+          let birthContent = document.createElement("div")
+          birthContent.id = "birthContent"
+          birthContent.textContent = birth
+          divPerso.appendChild(birthContent)
+
+          let genderContent = document.createElement("div")
+          genderContent.id = "genderContent"
+          genderContent.textContent = gender
+          divPerso.appendChild(genderContent)
+        
+          document.body.appendChild(divPerso)
+      }
+    }
+
+    const fetchAPIChar = async (): Promise<any[]> => {
+      const res = await fetch("https://hp-api.onrender.com/api/characters");
+      const chars = await res.json();
+      return chars;
+    };
+
+    const charsList = async () => {
+      const rawChars = await fetchAPIChar();
+
+      const persos: Perso[] = rawChars.map((char: any) => {
+        if (!char.dateOfBirth) {
+          char.dateOfBirth = "inkonuanh"
+        }
+        
+        if (!char.gender) {
+          char.gender = "inkonuanh"
+        }  
+        
+        return new Perso(char.name, char.dateOfBirth, char.gender);
+      });
+
+      persos.forEach(p => p.display());
+    };
+
+    charsList();
+    break;
   }
-}
 
-const fetchAPIChar = async (): Promise<any[]> => {
-  const res = await fetch("https://hp-api.onrender.com/api/characters");
-  const chars = await res.json();
-  return chars;
-};
+  case "/books.html": {
+  
+    class Book {
+      order: number
+      pages: number
+      title: string
+      release: string
+      cover: string
 
-const charsList = async () => {
-  const rawChars = await fetchAPIChar();
+      constructor(
+        order: number,
+        pages: number,
+        title: string,
+        release: string,
+        cover: string
+      ) {
+        this.order = order,
+        this.pages = pages,
+        this.title = title,
+        this.release = release,
+        this.cover = cover
+      }
+      display() {
+        let order = this.order
+        let pages = this.pages
+        let title = this.title
+        let release = this.release
+        let cover = this.cover
 
-  const persos: Perso[] = rawChars.map((char: any) => {
-    if (!char.dateOfBirth) {
-      char.dateOfBirth = null
+        let bookPage = document.createElement("div")
+        bookPage.id = "books"
+        bookPage.classList.add("bg-blue-100")
+        bookPage.textContent = `${order}, ${pages}, ${title}, ${release}}`
+
+
+        
+
+        let imageDiv = document.createElement("div")
+        imageDiv.id = "imgDiv"
+        document.body.appendChild(bookPage)
+
+
+        let image = document.createElement("img")
+        image.src = cover
+        image.id = "bookimg"
+        image.classList.add("w-100")
+        imageDiv.appendChild(image)
+
+        bookPage.appendChild(imageDiv)
+
+        document.body.appendChild(bookPage)
+
+        
+      }
+
     }
     
-    if (!char.gender) {
-      char.gender = null
-    }  
     
-    return new Perso(char.name, char.dateOfBirth, char.gender);
-  });
+    const fetchAPIBooks = async (): Promise<any[]> => {
+      const res = await fetch("https://potterhead-api.vercel.app/api/books");
+      const books = await res.json();
+      console.log(books)
+      return books;
+    };
+  
+    
 
-  persos.forEach(p => p.display());
-};
+    const charsList = async () => {
+      const data = await fetchAPIBooks();
 
-charsList();
+      const books: Book[] = data.map((book: any) => {
+        
+        
+      return new Book(book.serial, book.pages, book.title, book.release_date, book.cover);
+      });
+
+      books.forEach(p => p.display());
+    };
+
+    charsList();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    break;
+  }
+
+}
+
+
+
+
+
+
+
+
 
 
 
