@@ -1,4 +1,5 @@
 import './style.css'
+
 class Character {
   image: string
   name: string
@@ -13,7 +14,8 @@ class Character {
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 
-function header(): void {
+
+function header() {
   const headerDiv: HTMLDivElement = document.createElement('div')
   headerDiv.className = 'header py-10 bg-blue-900 fixed top-0 right-0 left-0 z-50'
 
@@ -42,7 +44,52 @@ function header(): void {
   headerDiv.appendChild(linkFilms)
   headerDiv.appendChild(linkLivres)
   app.appendChild(headerDiv)
+
+
+//==================================================MAISON=============================================
+
+
+  linkMaison.addEventListener("click", async (e) => {
+    e.preventDefault(); 
+  
+    while (app.firstChild) {
+      app.removeChild(app.firstChild);
+    }
+  
+    header()
+  
+    const res = await fetch("https://potterhead-api.vercel.app/api/houses")
+    const maisons = await res.json()
+  
+  
+    const title:HTMLHeadingElement = document.createElement("h1")
+    title.textContent = "Les 4 Maisons de Poudlard"
+    title.className = "text-4xl mt-30 text-center drop-shadow-[0_0_5px_white]"
+    app.appendChild(title);
+  
+  
+    const container:HTMLDivElement = document.createElement("div")
+    container.className = "grid grid-cols-2 gap-6 p-10"
+  
+  
+    maisons.forEach((maison: any) => {
+      const carte:HTMLDivElement = document.createElement("div")
+      carte.className = "bg-black bg-opacity-50 text-white p-15 rounded-lg shadow-md flex items-center justify-center hover:cursor-pointer transition-transform duration-300 transform hover:scale-105"
+  
+  
+      const name:HTMLHeadingElement = document.createElement("h2")
+      name.textContent = maison;
+      name.className = "text-2xl font-bold mb-2"
+  
+      carte.appendChild(name)
+      container.appendChild(carte)
+    });
+  
+    app.appendChild(container)
+    
+  });
 }
+
 
 const mainDiv: HTMLDivElement = document.createElement('div')
 mainDiv.className = 'grid grid-cols-5 gap-6 p-10'
@@ -54,6 +101,8 @@ h1.textContent = "Élèves de l'école de Poudlard"
 header()
 app.appendChild(h1)
 app.appendChild(mainDiv)
+
+
 
 async function callAPI(): Promise<any[]> {
   const res = await fetch("https://hp-api.onrender.com/api/characters")
@@ -91,13 +140,19 @@ async function displayCharacters(): Promise<void> {
 
     mainDiv.appendChild(card)
 
-    card.addEventListener("click", (): void => {
+    card.addEventListener("click", ():void=>{
       characterDetail(char)
     })
   })
 }
 
+
 displayCharacters()
+
+
+//=============================AFFICHAGE DÉTAIL========================================================
+
+
 class DetailCharacter {
   image: string
   name: string
@@ -130,6 +185,8 @@ class DetailCharacter {
   }
 }
 
+
+
 async function characterDetail(char: Character) {
   while (app.firstChild) {
     app.removeChild(app.firstChild)
@@ -160,7 +217,7 @@ async function characterDetail(char: Character) {
 
   const titre = document.createElement("h1")
   titre.textContent = `Détail de ${detail.name}`
-  titre.className = "text-white text-4xl mt-20 text-center mt-30 text-shadow-lg/30"
+  titre.className = "text-4xl mt-20 text-center mt-30 drop-shadow-[0_0_5px_white]"
   app.appendChild(titre)
 
   const wrapper = document.createElement("div")
@@ -201,6 +258,9 @@ async function characterDetail(char: Character) {
 
     footer()
 }
+
+//===================================FOOTER=====================================================================
+
 
 function footer():void {
   const footer = document.createElement('footer')
