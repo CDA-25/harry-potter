@@ -1,13 +1,11 @@
 import { defineConfig } from 'tailwindcss'
 
-export default defineConfig({
-  content: ['./index.html', './src/**/*.{ts,tsx,js,jsx}'],
+module.exports = {
+  content: [
+    './src/**/*.{js,ts,jsx,tsx,html}',
+  ],
   theme: {
-    extend: {
-      fontFamily: {
-        lumos: ['Lumos', 'sans-serif'],
-      },
-    },
+    extend: {},
   },
   plugins: [],
-});
+}

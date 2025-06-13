@@ -1,11 +1,12 @@
-import { Character } from './character'
+// import { Character } from './character'
 import './style.css'
 
-const cardContainer = document.getElementById('card-container')
+const charCard = document.getElementById('char-container')
+const id = url.searchParams.get('name')
 
-async function fetchCharacters() {
+async function fetchCharacter(id) {
   try {
-    const res = await fetch('https://hp-api.onrender.com/api/characters');
+    const res = await fetch(`https://hp-api.onrender.com/api/characters/${id}`);
     const data: CharacterData[] = await res.json();
 
     data.forEach((charData) => {

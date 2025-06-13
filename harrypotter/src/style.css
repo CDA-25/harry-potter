@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @font-face {
   font-family: 'magik';
   src: url('./assets/fonts/Magik.TTF') format('truetype');
