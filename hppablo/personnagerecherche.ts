@@ -1,3 +1,4 @@
+// liste des personnages
 class HarryPotterApp {
   private characters: any[] = [];
   private container: HTMLElement;
@@ -14,7 +15,7 @@ class HarryPotterApp {
     this.displayCharacters(this.characters);
     this.setupSearch();
     this.setupHouseButtons();
-    this.setupScrollButtons(); // Ajouté ici
+    this.setupScrollButtons();
   }
 
   async fetchCharacters() {
@@ -28,16 +29,11 @@ class HarryPotterApp {
 
   private houseColor(house: string): string {
     switch (house) {
-      case 'Gryffindor':
-        return 'bg-red-600';
-      case 'Slytherin':
-        return 'bg-green-700';
-      case 'Hufflepuff':
-        return 'bg-yellow-500';
-      case 'Ravenclaw':
-        return 'bg-blue-600';
-      default:
-        return 'bg-gray-500';
+      case 'Gryffindor': return 'bg-red-600';
+      case 'Slytherin': return 'bg-green-700';
+      case 'Hufflepuff': return 'bg-yellow-500';
+      case 'Ravenclaw': return 'bg-blue-600';
+      default: return 'bg-gray-500';
     }
   }
 
@@ -55,13 +51,15 @@ class HarryPotterApp {
 
       const card = document.createElement('div');
       card.className = `
-        bg-[#530404] hover:bg-gray-900  p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300
-        overflow-hidden border border-gray-200
+       bg-red-900 hover:bg-red-600 p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300
+        overflow-hidden border border-gray-200 cursor-pointer
       `;
+
+      const defaultImage = 'https://example.com/harry-placeholder.jpg'; // Remplace cette URL si tu veux
 
       card.innerHTML = `
         <img class="rounded w-full h-64 object-cover"
-             src="${char.image || 'https://via.placeholder.com/400x500'}"
+             src="${char.image ? char.image : defaultImage}"
              alt="${char.name}" />
         <div class="p-4 text-center">
           <h2 class="text-xl font-bold text-white mb-1">${char.name}</h2>
@@ -74,6 +72,10 @@ class HarryPotterApp {
           </p>
         </div>
       `;
+
+      card.addEventListener('click', () => {
+        window.location.href = `/details.html?id=${encodeURIComponent(char.name)}`;
+      });
 
       this.container.appendChild(card);
     });
@@ -95,8 +97,13 @@ class HarryPotterApp {
     buttons.forEach((button) => {
       button.addEventListener('click', () => {
         const selectedHouse = button.dataset.house;
-        const filtered = this.characters.filter((char) => char.house === selectedHouse);
-        this.displayCharacters(filtered);
+
+        if (selectedHouse === "tout") {
+          this.displayCharacters(this.characters);
+        } else {
+          const filtered = this.characters.filter((char) => char.house === selectedHouse);
+          this.displayCharacters(filtered);
+        }
       });
     });
   }

@@ -4,23 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/src/image/logoHP.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Harry Potter</title>
+    <title>Harry Potter | personnage</title>
   </head>
   <body class="bg-[url('/src/image/banner2.png')] bg-no-repeat bg-cover min-h-screen text-white">
 
     <header id="header" class="bg-[#530404] pt-4 pb-0">
       <div id="nav"></div>
     </header>
+    <h1 class="absolute text-3xl font-extrabold text-white -mt-100 ml-150">
+      Bienvenue dans le monde magique de Harry Potter !
+    </h1>
 
-    <!-- Boutons flèches pour scroll -->
-    <div id="scroll-buttons" class="fixed right-4 bottom-4 flex flex-col gap-3 z-50">
-      <button id="scroll-top" class="p-3 bg-[#530404] text-white rounded hover:bg-gray-900">↑ Haut</button>
-      <button id="scroll-middle" class="p-3 bg-[#530404] text-white rounded hover:bg-gray-900">↕ Milieu</button>
-      <button id="scroll-bottom" class="p-3 bg-[#530404] text-white rounded hover:bg-gray-900">↓ Bas</button>
-    </div>
+
+    
 
     <!-- BOUTONS DES MAISONS -->
     <div id="house-buttons" class="flex justify-center gap-4 my-6 flex-wrap">
+      <button data-house="tout" class=" hover:bg-blue-50 p-4 rounded-full">
+        <img src="/src/image/logoMaison.png" alt="Gryffondor" class="w-16 h-16 object-contain" />
+      </button>
       <button data-house="Gryffindor" class="bg-red-600 hover:bg-red-700 p-4 rounded-full">
         <img src="/src/image/logoG.png" alt="Gryffondor" class="w-16 h-16 object-contain" />
       </button>
@@ -35,13 +37,16 @@
       </button>
     </div>
 
+
+    <div id="btn"></div>
+
     <!-- BARRE DE RECHERCHE ET CARTES -->
     <div class="max-w-7xl mx-auto px-6">
       <input
         id="search"
         type="text"
         placeholder="Rechercher un personnage..."
-        class="w-full p-4 rounded bg-[#530404] text-white border border-gray-600 mb-10"
+        class="w-full max-w-md ml-100 p-4 rounded bg-red-900 text-white border border-red-700 mb-10"
       />
       
       <div id="cards-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10"></div>
@@ -50,6 +55,6 @@
     <!-- SCRIPTS -->
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
-    <script type="module" src="/recherche.ts"></script>
+    <script type="module" src="/personnagerecherche.ts"></script>
   </body>
 </html>

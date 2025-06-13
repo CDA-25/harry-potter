@@ -9,13 +9,25 @@ document.querySelector<HTMLDivElement>('#nav')!.innerHTML = `
     <ul class="flex space-x-6">
       <li><a href="/index.html" class="hover:text-yellow-600">Accueil</a></li>
       <li><a href="/personnage.html" class="hover:text-yellow-600">Personnages</a></li>
-      <li><a href="/maison.html" class="hover:text-yellow-600">Maisons</a></li>
-      <li><a href="#" class="hover:text-yellow-600">Contact</a></li>
+      <li><a href="/livre.html" class="hover:text-yellow-600">Livres</a></li>
+      <li><a href="/film.html" class="hover:text-yellow-600">Film</a></li>
     </ul>
     
   </nav>
-  <img class="w-full mt-2" src="/src/image/banner 1.png" alt="image château" />
+  <img class="w-full mt-2 relative" src="/src/image/banner 1.png" alt="image château" />
 `
+document.querySelector<HTMLDivElement>('#btn')!.innerHTML = `
+  <div id="scroll-buttons" class="fixed right-4 bottom-4 -mt-20 flex flex-col gap-3 z-50">
+      <button id="scroll-top" class="p-3 bg-red-700 hover:bg-red-600 text-white rounded">↑ Haut</button>
+      <button id="scroll-middle" class="p-3 bg-red-700 hover:bg-red-600 text-white rounded">↕ Milieu</button>
+      <button id="scroll-bottom" class="p-3 bg-red-700 hover:bg-red-600 text-white rounded">↓ Bas</button>
+    </div>
+
+
+`
+
+    
+
 
 document.querySelector<HTMLDivElement>('#S-2')!.innerHTML = `<section class="bg-[#530404] py-20 px-6 text-center">
     <h1 class="text-3xl font-bold text-white mb-12">
