@@ -16,25 +16,25 @@ const app = document.querySelector<HTMLDivElement>('#app')!
 
 
 function header() {
-  const headerDiv: HTMLDivElement = document.createElement('div')
+  const headerDiv:HTMLDivElement = document.createElement('div')
   headerDiv.className = 'header py-10 bg-blue-900 fixed top-0 right-0 left-0 z-50'
 
-  const linkAccueil: HTMLAnchorElement = document.createElement('a')
+  const linkAccueil:HTMLAnchorElement = document.createElement('a')
   linkAccueil.href = ''
   linkAccueil.className = 'px-8 text-2xl text-white'
   linkAccueil.textContent = 'Accueil'
 
-  const linkMaison: HTMLAnchorElement = document.createElement('a')
+  const linkMaison:HTMLAnchorElement = document.createElement('a')
   linkMaison.href = ''
   linkMaison.className = 'px-8 text-2xl text-white'
   linkMaison.textContent = 'Maisons'
 
-  const linkFilms: HTMLAnchorElement = document.createElement('a')
+  const linkFilms:HTMLAnchorElement = document.createElement('a')
   linkFilms.href = ''
   linkFilms.className = 'px-8 text-2xl text-white'
   linkFilms.textContent = 'Films'
 
-  const linkLivres: HTMLAnchorElement = document.createElement('a')
+  const linkLivres:HTMLAnchorElement = document.createElement('a')
   linkLivres.href = ''
   linkLivres.className = 'px-8 text-2xl text-white'
   linkLivres.textContent = 'Livres'
@@ -46,10 +46,14 @@ function header() {
   app.appendChild(headerDiv)
 
 
+
+
 //==================================================MAISON=============================================
 
 
-  linkMaison.addEventListener("click", async(e)=>{
+
+
+  linkMaison.addEventListener("click", async(e:MouseEvent)=>{
     e.preventDefault()
   
     while (app.firstChild) {
@@ -90,10 +94,14 @@ function header() {
   });
 
 
+
+
   //====================================================FILMS===================================================
 
 
-  linkFilms.addEventListener("click", async(e)=>{
+
+
+  linkFilms.addEventListener("click", async(e:MouseEvent)=>{
     e.preventDefault()
 
     while(app.firstChild){
@@ -115,7 +123,7 @@ function header() {
 
     films.forEach((films:any)=> {
 
-      const img: HTMLImageElement = document.createElement("img")
+      const img:HTMLImageElement = document.createElement("img")
       img.src = films.poster
       img.alt = "Image du film"
       img.className = "w-80"
@@ -149,9 +157,14 @@ function header() {
   })
 
 
+
+
   //==================================LIVRE===================================================
 
-  linkLivres.addEventListener("click", async(e)=>{
+
+
+
+  linkLivres.addEventListener("click", async(e:MouseEvent)=>{
     e.preventDefault()
 
     while(app.firstChild){
@@ -190,6 +203,7 @@ function header() {
 
       const year:HTMLParagraphElement = document.createElement("p")
       year.textContent = `Sortie le: ${livre.release_date}`
+      year.className = "text-white"
 
       carte.appendChild(img)
       carte.appendChild(name)
@@ -198,14 +212,21 @@ function header() {
       container.appendChild(carte)
     })
     app.appendChild(container)
+
+    footer()
   })
 }
 
 
-const mainDiv: HTMLDivElement = document.createElement('div')
+
+//============================================ACCUEIL===========================================================
+
+
+
+const mainDiv:HTMLDivElement = document.createElement('div')
 mainDiv.className = 'grid grid-cols-5 gap-6 p-10'
 
-const h1: HTMLHeadingElement = document.createElement('h1')
+const h1:HTMLHeadingElement = document.createElement('h1')
 h1.className = 'flex items-center justify-center text-5xl pt-10 drop-shadow-[0_0_5px_white] mt-30'
 h1.textContent = "Élèves de l'école de Poudlard"
 
@@ -228,20 +249,20 @@ async function displayCharacters(): Promise<void> {
   )
 
   chars.forEach(char => {
-    const card: HTMLDivElement = document.createElement("div")
+    const card:HTMLDivElement = document.createElement("div")
     card.className =
       "bg-black bg-opacity-50 rounded-lg p-6 m-4 max-w-xs text-white shadow-lg flex flex-col items-center justify-center border-4 border-white-500 hover:bg-sky-700 hover:cursor-pointer transition-transform duration-300 transform hover:scale-105"
 
-    const nameElem: HTMLHeadingElement = document.createElement("h2")
+    const nameElem:HTMLHeadingElement = document.createElement("h2")
     nameElem.textContent = char.name
     nameElem.className = "text-2xl font-bold mb-2"
 
-    const img: HTMLImageElement = document.createElement("img")
+    const img:HTMLImageElement = document.createElement("img")
     img.src = char.image
     img.alt = `Portrait de ${char.name}`
     img.className = "w-32 h-32 rounded-full object-cover mb-4"
 
-    const houseElem: HTMLParagraphElement = document.createElement("p")
+    const houseElem:HTMLParagraphElement = document.createElement("p")
     houseElem.textContent = `Maison : ${char.house}`
     houseElem.className = "text-lg"
 
@@ -261,7 +282,9 @@ async function displayCharacters(): Promise<void> {
 displayCharacters()
 
 
+
 //=============================AFFICHAGE DÉTAIL========================================================
+
 
 
 class DetailCharacter {
@@ -331,14 +354,14 @@ async function characterDetail(char: Character) {
   titre.className = "text-4xl mt-20 text-center mt-30 drop-shadow-[0_0_5px_white]"
   app.appendChild(titre)
 
-  const wrapper = document.createElement("div")
-  wrapper.className = "flex justify-center mt-10"
+  const centerDiv = document.createElement("div")
+  centerDiv.className = "flex justify-center mt-10"
 
   const card: HTMLDivElement = document.createElement("div")
   card.className ="bg-black bg-opacity-50 rounded-lg p-6 m-4 text-white shadow-lg flex flex-col items-center justify-center border-4 border-white-500"
 
-  wrapper.appendChild(card)
-  app.appendChild(wrapper)
+  centerDiv.appendChild(card)
+  app.appendChild(centerDiv)
     const img = document.createElement("img")
     img.src = detail.image
     img.alt = detail.name
@@ -367,8 +390,9 @@ async function characterDetail(char: Character) {
       card.appendChild(p)
     }
 
-    footer()
+  footer()
 }
+
 
 //===================================FOOTER=====================================================================
 
