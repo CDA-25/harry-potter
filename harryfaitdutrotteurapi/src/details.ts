@@ -12,9 +12,11 @@ class CharacterDetailsPage {
 
         const backLink = document.getElementById('back-link') as HTMLAnchorElement;
         if (house) {
-            backLink.href = `maisons_details.html?house=${house}`;
-            backLink.textContent = `Retour à la maison ${house}`;
+            backLink.href = `index.html?house=${house}`;
+        } else {
+            backLink.href = 'index.html';
         }
+        backLink.textContent = "Retour à l'accueil";
 
         if (characterId) {
             const character = await this.apiService.getCharacterById(characterId);

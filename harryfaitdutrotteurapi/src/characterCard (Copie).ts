@@ -3,23 +3,21 @@ import type { Character } from "./api";
 export class CharacterCard {
     private character: Character;
     private houseName?: string;
-    private fromPage: string;
 
-    constructor(character: Character, fromPage: string, houseName?: string) {
+    constructor(character: Character, houseName?: string) {
         this.character = character;
         this.houseName = houseName;
-        this.fromPage = fromPage;
     }
 
     public createCard(): HTMLAnchorElement {
         const card = document.createElement('a');
         let href;
-        if (this.fromPage === 'maisons') {
+        if (this.houseName) {
             href = `maisons_details.html?id=${this.character.id}&house=${this.houseName}`;
         } else {
             href = `details.html?id=${this.character.id}`;
-            if (this.houseName) {
-                href += `&house=${this.houseName}`;
+            if (this.character.house) {
+                href += `&house=${this.character.house}`;
             }
         }
         card.href = href;

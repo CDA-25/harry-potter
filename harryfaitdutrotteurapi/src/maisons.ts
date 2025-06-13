@@ -57,7 +57,7 @@ class HousesPage {
         if (!container) return;
         container.innerHTML = ''; // Clear container
         characters.forEach(character => {
-            const characterCard = new CharacterCard(character, houseName);
+            const characterCard = new CharacterCard(character, 'maisons', houseName);
             const cardElement = characterCard.createCard();
             container.appendChild(cardElement);
         });

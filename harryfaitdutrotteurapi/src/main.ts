@@ -15,7 +15,16 @@ class App {
 
         this.characters = await this.apiService.getCharacters();
         this.populateHouseSelect();
-        this.displayCharacters(this.characters, 'all');
+        const urlParams = new URLSearchParams(window.location.search);
+        const houseFromUrl = urlParams.get('house');
+
+        if (houseFromUrl) {
+            this.houseSelect.value = houseFromUrl;
+            const filteredCharacters = this.characters.filter(character => character.house === houseFromUrl);
+            this.displayCharacters(filteredCharacters, houseFromUrl);
+        } else {
+            this.displayCharacters(this.characters, 'all');
+        }
 
         this.houseSelect.addEventListener('change', () => {
             if (this.houseSelect) {
@@ -49,7 +58,7 @@ class App {
         if (!this.container) return;
         this.container.innerHTML = ''; // Clear container
         characters.forEach(character => {
-            const characterCard = new CharacterCard(character, houseName === 'all' ? undefined : houseName);
+            const characterCard = new CharacterCard(character, 'index', houseName === 'all' ? undefined : houseName);
             const cardElement = characterCard.createCard();
             this.container?.appendChild(cardElement);
         });
