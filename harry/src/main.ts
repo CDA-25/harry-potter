@@ -12,6 +12,7 @@ class Character {
   }
 }
 
+
 const app = document.querySelector<HTMLDivElement>('#app')!
 
 
@@ -27,22 +28,22 @@ function header() {
   const linkAccueil:HTMLAnchorElement = document.createElement('a')
   linkAccueil.href = ''
   linkAccueil.className = 'px-8 text-2xl text-white transition-transform duration-300 transform hover:scale-120 ps-40'
-  linkAccueil.textContent = 'Accueil'
+  linkAccueil.textContent = 'Home'
 
   const linkMaison:HTMLAnchorElement = document.createElement('a')
   linkMaison.href = ''
   linkMaison.className = 'px-8 text-2xl text-white transition-transform duration-300 transform hover:scale-120'
-  linkMaison.textContent = 'Maisons'
+  linkMaison.textContent = 'Houses'
 
   const linkFilms:HTMLAnchorElement = document.createElement('a')
   linkFilms.href = ''
   linkFilms.className = 'px-8 text-2xl text-white transition-transform duration-300 transform hover:scale-120'
-  linkFilms.textContent = 'Films'
+  linkFilms.textContent = 'Movies'
 
   const linkLivres:HTMLAnchorElement = document.createElement('a')
   linkLivres.href = ''
   linkLivres.className = 'px-8 text-2xl text-white transition-transform duration-300 transform hover:scale-120'
-  linkLivres.textContent = 'Livres'
+  linkLivres.textContent = 'Books'
 
   const gif:HTMLImageElement = document.createElement("img")
   gif.src = ("/src/img/harry.gif")
@@ -79,7 +80,7 @@ function header() {
   
   
     const title:HTMLHeadingElement = document.createElement("h1")
-    title.textContent = "Les 4 Maisons de Poudlard"
+    title.textContent = "The 4 hogwarts houses"
     title.className = "text-4xl mt-30 text-center drop-shadow-[0_0_5px_white]"
     app.appendChild(title)
   
@@ -95,13 +96,17 @@ function header() {
   
       const name:HTMLHeadingElement = document.createElement("h2")
       name.textContent = maison;
-      name.className = "text-2xl font-bold mb-2"
+
+      carte.addEventListener("click", () => {
+        displayCharactersByHouse(maison)
+      })
+
   
       carte.appendChild(name)
       container.appendChild(carte)
     });
   
-    app.appendChild(container)
+  app.appendChild(container)
     
   });
 
@@ -126,7 +131,7 @@ function header() {
     const films = await res.json()
 
     const title:HTMLHeadingElement = document.createElement("h1")
-    title.textContent = "Tous les films"
+    title.textContent = "All movies"
     title.className = "text-4xl mt-30 text-center drop-shadow-[0_0_5px_white]"
     app.appendChild(title)
 
@@ -149,7 +154,7 @@ function header() {
 
 
       const year:HTMLParagraphElement = document.createElement("p")
-      year.textContent = `Date de sortie: ${films.release_date}`
+      year.textContent = `release date: ${films.release_date}`
       year.className = "text-white"
 
       const budget:HTMLParagraphElement = document.createElement("p")
@@ -189,7 +194,7 @@ function header() {
     const livres = await res.json()
 
     const title:HTMLHeadElement = document.createElement("h1")
-    title.textContent = "Tous les livres"
+    title.textContent = "All books"
     title.className = "text-4xl mt-30 text-center drop-shadow-[0_0_5px_white]"
     app.appendChild(title)
 
@@ -210,11 +215,11 @@ function header() {
       carte.className = "bg-black bg-opacity-50 text-while p-15 rounded-lg shadow-md flex items-center justify-center flex-col"
 
       const page:HTMLParagraphElement = document.createElement("p")
-      page.textContent = `Nombre de page: ${livre.pages}`
+      page.textContent = `Pages: ${livre.pages}`
       page.className = "text-white"
 
       const year:HTMLParagraphElement = document.createElement("p")
-      year.textContent = `Sortie le: ${livre.release_date}`
+      year.textContent = `Release date: ${livre.release_date}`
       year.className = "text-white"
 
       carte.appendChild(img)
@@ -240,7 +245,7 @@ mainDiv.className = 'grid grid-cols-5 gap-6 p-10'
 
 const h1:HTMLHeadingElement = document.createElement('h1')
 h1.className = 'flex items-center justify-center text-5xl pt-10 drop-shadow-[0_0_5px_white] mt-30'
-h1.textContent = "Élèves de l'école de Poudlard"
+h1.textContent = "Hogwarts students"
 
 header()
 app.appendChild(h1)
@@ -275,7 +280,7 @@ async function displayCharacters(): Promise<void> {
     img.className = "w-32 h-32 rounded-full object-cover mb-4"
 
     const houseElem:HTMLParagraphElement = document.createElement("p")
-    houseElem.textContent = `Maison : ${char.house}`
+    houseElem.textContent = `House : ${char.house}`
     houseElem.className = "text-lg"
 
     card.appendChild(img)
@@ -295,7 +300,7 @@ displayCharacters()
 
 
 
-//=============================AFFICHAGE DÉTAIL========================================================
+//=================================AFFICHAGE DÉTAIL========================================================
 
 
 
@@ -349,20 +354,20 @@ async function characterDetail(char: Character) {
     data.image,
     data.name,
     data.house,
-    data.alternate_names[0] || "Aucun",
-    data.dateOfBirth || "Inconnue",
-    data.yearOfBirth || "Inconnue",
-    data.species || "Inconnue",
-    data.gender || "Inconnu",
-    data.ancestry || "Inconnu",
-    data.hairColour || "Inconnu",
-    data.eyeColour || "Inconnu",
+    data.alternate_names[0] || "None",
+    data.dateOfBirth || "Unknown",
+    data.yearOfBirth || "Unknown",
+    data.species || "Unknown",
+    data.gender || "Unknown",
+    data.ancestry || "Unknown",
+    data.hairColour || "Unknown",
+    data.eyeColour || "Unknown",
     data.alive,
-    data.actor || "Inconnu"
+    data.actor || "Unknown"
   )
 
   const titre = document.createElement("h1")
-  titre.textContent = `Détail de ${detail.name}`
+  titre.textContent = `Details of ${detail.name}`
   titre.className = "text-4xl mt-20 text-center mt-30 drop-shadow-[0_0_5px_white]"
   app.appendChild(titre)
 
@@ -381,18 +386,18 @@ async function characterDetail(char: Character) {
     card.appendChild(img)
 
     const details = [
-    `Nom : ${detail.name}`,
-    `Maison : ${detail.house}`,
-    `Nom alternatif : ${detail.alternateName}`,
-    `Année de naissance : ${detail.yearBirth}`,
-    `Date de naissance : ${detail.birth}`,
-    `Acteur : ${detail.actor}`,
-    `Espèce : ${detail.espece}`,
-    `Sexe : ${detail.genre}`,
-    `Ancêtre : ${detail.ancetre}`,
-    `Cheveux : ${detail.hair}`,
-    `Yeux : ${detail.eye}`,
-    `En vie : ${detail.isAlive ? "Oui" : "Non"}`
+    `Name : ${detail.name}`,
+    `House : ${detail.house}`,
+    `Alternate name : ${detail.alternateName}`,
+    `Birth year : ${detail.yearBirth}`,
+    `Birthday : ${detail.birth}`,
+    `Actor : ${detail.actor}`,
+    `Species : ${detail.espece}`,
+    `Sex : ${detail.genre}`,
+    `Ancestor : ${detail.ancetre}`,
+    `Hair : ${detail.hair}`,
+    `Eye : ${detail.eye}`,
+    `is alive : ${detail.isAlive ? "Yes" : "No"}`
     ]
 
     for (const detail of details) {
@@ -406,7 +411,62 @@ async function characterDetail(char: Character) {
 }
 
 
+
+//=====================================================FILTRE MAISON==========================================
+
+
+
+async function displayCharactersByHouse(houseName:string):Promise<void>{
+
+  while(app.firstChild){
+    app.removeChild(app.firstChild)
+  }
+
+  header()
+
+  const res = await fetch("https://hp-api.onrender.com/api/characters")
+  const allCharacters = await res.json()
+
+  const filtered = allCharacters.filter((char:any)=> char.house === houseName)
+
+  const title = document.createElement("h1")
+  title.textContent = `Wizards of ${houseName}`
+  title.className = "text-4xl mt-30 text-center drop-shadow-[0_0_5px_white]"
+  app.appendChild(title)
+
+  const container = document.createElement("div")
+  container.className = "grid grid-cols-4 gap-6 p-10"
+
+  filtered.forEach((char:any)=>{
+    const card = document.createElement("div")
+    card.className = "bg-black bg-opacity-50 text-white p-6 rounded-lg shadow-md flex flex-col items-center hover:cursor-pointer hover:scale-105 transition-transform"
+
+    const img = document.createElement("img")
+    img.src = char.image
+    img.alt = char.name
+    img.className = "w-32 h-32 rounded-full mb-4 object-cover"
+
+    const name = document.createElement("h2")
+    name.textContent = char.name
+    name.className = "text-2xl font-bold mb-2"
+
+    card.appendChild(img)
+    card.appendChild(name)
+    container.appendChild(card)
+
+    card.addEventListener("click", () => {
+      characterDetail(new Character(char.image, char.name, char.house))
+    })
+  })
+
+  app.appendChild(container)
+  footer()
+}
+
+
+
 //===================================FOOTER=====================================================================
+
 
 
 function footer():void {
