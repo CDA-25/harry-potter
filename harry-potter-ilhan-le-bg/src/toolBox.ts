@@ -17,6 +17,15 @@ export class ToolBox {
         return newDiv;
     }
 
+    static createSection(className: string, parent: HTMLElement | null= null) {
+        const section = document.createElement("section")
+        section.classList.add(className)
+        if (parent) {
+            parent.appendChild(section)
+        }
+        return section;
+    }
+
     static createImage(image: string, className: string, parent: HTMLElement | null= null) {
         const img =  document.createElement("img")
         img.src = image;
@@ -68,3 +77,5 @@ export class ToolBox {
     }
 
 }
+
+
