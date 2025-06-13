@@ -11,6 +11,7 @@ export class CharacterCard {
         this.fromPage = fromPage;
     }
 
+    
     public createCard(): HTMLAnchorElement {
         const card = document.createElement('a');
         let href = `details.html?id=${this.character.id}&from=${this.fromPage}`;
