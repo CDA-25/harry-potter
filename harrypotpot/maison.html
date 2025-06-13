@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="./public/harry-potter.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harry Potter - Accueil</title>
+  <title>Harry Potter - Maisons</title>
 </head>
 
 <body class="bg-blue-950 box-border">
@@ -19,22 +19,11 @@
     </ul>
   </header>
   <main>
-    <div class="pt-20 pl-13">
-        <label for="selectHouse"></label>
-        <select id="selectHouse" class="border-2 rounded p-2 bg-amber-100 border-amber-300 ">
-          <option value="">Filtrer par maison</option>
-          <option value="gryffindor">Gryffondor</option>
-          <option value="slytherin">Serpentard</option>
-          <option value="hufflepuff">Poufsouffle</option>
-          <option value="ravenclaw">Serdaigle</option>
-        </select>
-      </div>
-    <div id="app" class="m-5 min-h-screen grid grid-cols-5 gap-6 p-6"></div>
+    <section id="houses" class="grid grid-cols-4 gap-5 h-150 m-10"></section>
   </main>
   <footer class="fixed bottom-0 left-0 w-full bg-black/80 text-white p-2">
     <h1 class="font-harry text-1xl text-blue-400 text-end"> Alice Cordier</h1>
   </footer>
-  <script type="module" src="/src/pages/main.ts"></script>
+  <script type="module" src="/src/pages/maisons.ts"></script>
 </body>
-
 </html>

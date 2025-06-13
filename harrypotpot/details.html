@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./public/harry-potter.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harry Potter</title>
+</head>
+
+<body class="bg-blue-950 box-border">
+    <header class="flex justify-around p-5 ">
+        <div class="flex items-center justify-center"> 
+            <a href="./index.html"> 
+            <img src="./public/harry-potter.png" alt="logo Harry Potter" class="w-15 h-15"></a>
+        </div>
+        <button id="btnRetour" class="text-amber-200 cursor-pointer hover:underline border-1 border-amber-200 p-3 rounded-2xl bg-black/80"> Retour à la liste </button>
+    </header>
+    <main class="flex justify-center">
+        <div id="appDetails"></div>
+    </main>
+    
+    <footer class="fixed bottom-0 left-0 w-full bg-black/80 text-white p-2">
+        <h1 class="font-harry text-1xl text-blue-400 text-end"> Alice Cordier</h1>
+    </footer>
+    <script type="module" src="/src/pages/details.ts"></script>
+</body>
+
+</html>
