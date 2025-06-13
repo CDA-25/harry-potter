@@ -17,32 +17,44 @@ const app = document.querySelector<HTMLDivElement>('#app')!
 
 function header() {
   const headerDiv:HTMLDivElement = document.createElement('div')
-  headerDiv.className = 'header py-10 bg-blue-900 fixed top-0 right-0 left-0 z-50'
+  headerDiv.className = 'header py-10 bg-blue-900 fixed top-0 right-0 left-0 z-50 flex gap-8'
+
+  const logo:HTMLImageElement = document.createElement("img")
+  logo.src = ("/src/img/logo.png")
+  logo.alt = "Logo Harry Potter"
+  logo.className = 'absolute w-30 ps-8 top-0.5'
 
   const linkAccueil:HTMLAnchorElement = document.createElement('a')
   linkAccueil.href = ''
-  linkAccueil.className = 'px-8 text-2xl text-white'
+  linkAccueil.className = 'px-8 text-2xl text-white transition-transform duration-300 transform hover:scale-120 ps-40'
   linkAccueil.textContent = 'Accueil'
 
   const linkMaison:HTMLAnchorElement = document.createElement('a')
   linkMaison.href = ''
-  linkMaison.className = 'px-8 text-2xl text-white'
+  linkMaison.className = 'px-8 text-2xl text-white transition-transform duration-300 transform hover:scale-120'
   linkMaison.textContent = 'Maisons'
 
   const linkFilms:HTMLAnchorElement = document.createElement('a')
   linkFilms.href = ''
-  linkFilms.className = 'px-8 text-2xl text-white'
+  linkFilms.className = 'px-8 text-2xl text-white transition-transform duration-300 transform hover:scale-120'
   linkFilms.textContent = 'Films'
 
   const linkLivres:HTMLAnchorElement = document.createElement('a')
   linkLivres.href = ''
-  linkLivres.className = 'px-8 text-2xl text-white'
+  linkLivres.className = 'px-8 text-2xl text-white transition-transform duration-300 transform hover:scale-120'
   linkLivres.textContent = 'Livres'
 
+  const gif:HTMLImageElement = document.createElement("img")
+  gif.src = ("/src/img/harry.gif")
+  gif.alt = "Harry qui vole"
+  gif.className = "absolute w-24 left-300 bottom-2"
+
+  headerDiv.appendChild(logo)
   headerDiv.appendChild(linkAccueil)
   headerDiv.appendChild(linkMaison)
   headerDiv.appendChild(linkFilms)
   headerDiv.appendChild(linkLivres)
+  headerDiv.appendChild(gif)
   app.appendChild(headerDiv)
 
 
