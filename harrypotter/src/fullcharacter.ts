@@ -1,22 +1,27 @@
-// import { Character } from './character'
-import './style.css'
+import './style.css';
+import { Character } from './character';
+import type { CharacterData } from './character';
 
-const charCard = document.getElementById('char-container')
-const id = url.searchParams.get('name')
+const charCard = document.getElementById('char-container');
+const url = new URL(window.location.href);
 
-async function fetchCharacter(id) {
+const id = url.searchParams.get('name');
+
+async function fetchCharacter(name: string) {
   try {
-    const res = await fetch(`https://hp-api.onrender.com/api/characters/${id}`);
+    console.log(name)
+    const res = await fetch(`https://hp-api.onrender.com/api/character/${name}`);
     const data: CharacterData[] = await res.json();
-
-    data.forEach((charData) => {
-      const character = new Character(charData);
-      character.createCard();
-    });
+    const character = new Character(data[0]);
+    character.createCompleteCard();
 
   } catch (error) {
     console.error("Erreur lors du fetch des personnages :", error);
   }
 }
 
-fetchCharacters();
+if (id) {
+  fetchCharacter(id);
+} else {
+  console.warn("Aucun paramètre 'name' trouvé dans l'URL.");
+}

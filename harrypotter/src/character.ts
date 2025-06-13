@@ -10,7 +10,14 @@ export type CharacterData = {
 }
 
 const cardContainer = document.getElementById('card-container');
-cardContainer.className = "grid grid-cols-4 gap-10 ml-10 mr-10"
+if (cardContainer) {
+  cardContainer.className = "grid grid-cols-4 gap-10 ml-10 mr-10";
+}
+
+const charContainer = document.getElementById('char-container');
+if (charContainer) {
+  charContainer.className = ""
+}
 
 export class Character {
   id: any;
@@ -53,5 +60,25 @@ export class Character {
     card.appendChild(imgEl)
 
     cardContainer?.appendChild(card);
+  }
+
+  createCompleteCard() {
+    const card = document.createElement('div');
+    card.className = 'card';
+    const nameEl = document.createElement('h2');
+    nameEl.className = ""
+    nameEl.textContent = this.name;
+    card.appendChild(nameEl);
+
+    const imgEl = document.createElement('img');
+    if (this.image === '') {
+      imgEl.src = '/src/assets/img/PPPablo.jpeg'
+    } else {
+      imgEl.src = this.image
+    }
+    imgEl.className = 'min-w-100 min-h-100 max-w-100 max-h-100'
+    card.appendChild(imgEl)
+
+    charContainer?.appendChild(card);
   }
 }

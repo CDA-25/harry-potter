@@ -1,7 +1,6 @@
 import { Character } from './character'
+import type { CharacterData } from './character';
 import './style.css'
-
-const cardContainer = document.getElementById('card-container')
 
 async function fetchCharacters() {
   try {
