@@ -8,13 +8,13 @@ export class Character {
   ancestry: string;
 
   constructor(data: any) {
-    this.name = data.name ?? 'Inconnu';
-    this.house = data.house ?? 'Sans maison';
+    this.name = data.name ?? 'Unknown';
+    this.house = data.house ?? 'unknown';
     this.image = data.image ?? '';
-    this.actor = data.actor ?? 'Inconnu';
-    this.gender = data.gender ?? 'inconnu';
-    this.dateOfBirth = data.dateOfBirth ?? 'Inconnu';
-    this.ancestry = data.ancestry?? 'Inconnu';
+    this.actor = data.actor ?? 'Unknown actor';
+    this.gender = data.gender ?? 'Unknown';
+    this.dateOfBirth = data.dateOfBirth ?? 'unknown date';
+    this.ancestry = data.ancestry?? 'Unknown';
   }
 
   get imageUrl(): string {
@@ -22,6 +22,6 @@ export class Character {
   }
 
   get description(): string {
-    return `${this.name} is a ${this.gender} from ${this.house} house. This character is played by ${this.actor}. ${this.name} is born in ${this.dateOfBirth} and his ancestor are ${this.ancestry}.`;
+    return `${this.name} is a ${this.gender} from ${this.house}. This character is played by ${this.actor}. ${this.name} is born in ${this.dateOfBirth} and his ancestor are ${this.ancestry}.`;
   }
 }
