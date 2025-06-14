@@ -1,0 +1,11 @@
+services: 
+  harry_potta:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: harry_potta:dev
+    container_name: harry_potta_dev
+    volumes:
+      - ./:/app
+    ports:
+      - "3000:3000"
