@@ -20,6 +20,11 @@ if (charContainer) {
   charContainer.className = ""
 }
 
+const houseContainer = document.getElementById('houses-container');
+if (houseContainer) {
+  houseContainer.className = "grid grid-cols-2 gap-10 ml-10 mr-10 mb-10";
+}
+
 export class Character {
   id: any;
   name: string;
@@ -171,5 +176,70 @@ export class Character {
     infos.appendChild(croque);
 
     charContainer?.appendChild(card);
+  }
+}
+
+export class Houseslist {
+  house: string;
+  constructor(house: string) {
+    this.house = house;
+  }
+
+  createHouseCard() {
+    const houseCard = document.createElement('div');
+    switch (this.house) {
+      case 'Gryffindor': houseCard.className = 'bg-red-950 hover:bg-red-900 transition ease-in-out duration-300 rounded-[12px] flex flex-col py-[25px] mt-10'; break;
+      case 'Hufflepuff': houseCard.className = 'bg-yellow-950 hover:bg-yellow-900 transition ease-in-out duration-300 rounded-[12px] flex flex-col py-[25px] mt-10'; break;
+      case 'Ravenclaw': houseCard.className = 'bg-blue-950 hover:bg-blue-900 transition ease-in-out duration-300 rounded-[12px] flex flex-col py-[25px] mt-10'; break;
+      case 'Slytherin': houseCard.className = 'bg-green-950 hover:bg-green-900 transition ease-in-out duration-300 rounded-[12px] flex flex-col py-[25px] mt-10'; break;
+    }
+    const imgEl = document.createElement('img');
+    switch (this.house) {
+      case 'Gryffindor': 
+      imgEl.src = '../src/assets/img/Gryffonder.webp';
+      imgEl.className = 'w-[400px] h-[400px] mx-auto';
+      break;
+
+      case 'Hufflepuff': 
+      imgEl.src = '../src/assets/img/Poufsouffle.webp';
+      imgEl.className = 'w-[400px] h-[400px] mx-auto';
+      break;
+
+      case 'Ravenclaw': 
+      imgEl.src = '../src/assets/img/Serdaigle.webp';
+      imgEl.className = 'w-[400px] h-[400px] mx-auto';
+      break;
+
+      case 'Slytherin': 
+      imgEl.src = '../src/assets/img/Serpentard.webp';
+      imgEl.className = 'w-[400px] h-[400px] mx-auto';
+      break;
+    }
+    houseCard.appendChild(imgEl);
+
+    const houseName = document.createElement('h2');
+    switch (this.house) {
+      case 'Gryffindor': 
+      houseName.className = 'text-center text-xl font-bold pt-2';
+      houseName.textContent = 'Gryffondor';
+      break;
+      case 'Hufflepuff': 
+      houseName.className = 'text-center text-xl font-bold pt-2';
+      houseName.textContent = 'Poufsouffle';
+      break;
+
+      case 'Ravenclaw': 
+      houseName.className = 'text-center text-xl font-bold pt-2';
+      houseName.textContent = 'Serdaigle';
+      break;
+
+      case 'Slytherin': 
+      houseName.className = 'text-center text-xl font-bold pt-2';
+      houseName.textContent = 'Serpentard';
+      break;
+    }
+    houseCard.appendChild(houseName);
+
+    houseContainer?.appendChild(houseCard);
   }
 }

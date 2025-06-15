@@ -1,8 +1,8 @@
 import './style.css';
-import { Character } from './character';
-import type { CharacterData } from './character';
+import { Character } from './classes';
+import type { CharacterData } from './classes';
 
-const charCard = document.getElementById('char-container');
+// const charCard = document.getElementById('char-container');
 const url = new URL(window.location.href);
 
 const id = url.searchParams.get('name');

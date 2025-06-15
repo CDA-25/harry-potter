@@ -1,5 +1,5 @@
-import { Character } from './character'
-import type { CharacterData } from './character';
+import { Character } from './classes'
+import type { CharacterData } from './classes';
 import './style.css'
 
 async function fetchCharacters() {
