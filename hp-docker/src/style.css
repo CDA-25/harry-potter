@@ -1,12 +1,41 @@
 @import "tailwindcss";
 
 @font-face {
-    font-family: "Howdybun";
-    src: url(/hp-docker/public/assets/fonts/Howdybun.ttf) format("truetype");
+    font-family: "HarryP";
+    src: url(./src/assets/fonts/HARRYP__.TTF) format("truetype");
 }
 
 h1 {
-    font-family: "Howdybun", sans-serif;
-    font-size: 2.5rem;
+    font-family: "HarryP", sans-serif;
+    font-size: 4rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
+.bg-default {
+  background-image: url("./assets/img/mur.webp");
+}
+
+.bg-gryffindor {
+  background-image: url("./assets/img/gryffindor.jpg");
+}
+
+.bg-slytherin {
+  background-image: url("./assets/img/slytherin.jpg");
+}
+
+.bg-ravenclaw {
+  background-image: url("./assets/img/ravenclaw.jpg");
+}
+
+.bg-hufflepuff {
+  background-image: url("./assets/img/hufflepuff.jpg");
+}
+
+.bg-books {
+  background-image: url("./assets/img/library.jpg");
+}
+
+.bg-movies {
+  background-image: url("./assets/img/theater.jpg");
+  background-size: cover;
+}

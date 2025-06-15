@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akhy Potter - Accueil</title>
+</head>
+
+<body class="min-h-screen flex flex-col bg-[url('/src/assets/img/mur.webp')] bg-fixed bg-no-repeat]">
+  <main class="flex flex-col flex-1">
+    <header
+      class="flex flex-row gap-10 items-center bg-slate-900 p-10 fixed left-0 top-0 right-0 z-10 shadow-xl border-b-2 border-slate-800">
+      <a href="index.html">
+        <h1 class="font-bold text-yellow-300">Akhy Potter</h1>
+      </a>
+      <nav>
+        <ul class="flex flex-row gap-15 text-xl font-semibold text-white/75">
+          <li class="text-yellow-300 transition delay-10 duration-300 ease-in-out -translate-y-1 scale-140 underline"><a
+              href="accueil.html">Accueil</a></li>
+          <li
+            class="hover:text-yellow-300 transition delay-10 duration-300 ease-in-out hover:-translate-y-1 hover:scale-140 hover:underline">
+            <a href="maisons.html">Les maisons</a></li>
+          <li
+            class="hover:text-yellow-300 transition delay-10 duration-300 ease-in-out hover:-translate-y-1 hover:scale-140 hover:underline">
+            <a href="films.html">Les films</a></li>
+          <li
+            class="hover:text-yellow-300 transition delay-10 duration-300 ease-in-out hover:-translate-y-1 hover:scale-140 hover:underline">
+            <a href="livres.html">Les livres</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="flex justify-center mt-50">
+      <select id="house-filter" class="px-5 py-3 rounded-xl bg-slate-900 text-white border-2 border-slate-800">
+        <option value="">-- Choisir une maison --</option>
+        <option value="Gryffindor">Gryffindor</option>
+        <option value="Slytherin">Slytherin</option>
+        <option value="Ravenclaw">Ravenclaw</option>
+        <option value="Hufflepuff">Hufflepuff</option>
+      </select>
+    </div>
+
+    <div
+      class="cards-container grid grid-cols-5 bg-neutral-900 gap-10 mx-15 p-15 rounded-xl mt-5 mb-6 inset-ring-3 inset-ring-red-950">
+    </div>
+
+    <footer class="text-center bg-gray-950 border-t-2 border-gray-900 text-white p-10 ">
+      <p>Tarik AMiMiR le sorcier d'Al Hoceima</p>
+    </footer>
+  </main>
+
+  <script type="module" src="/src/main.ts"></script>
+
+</html>

@@ -1,14 +1,14 @@
-<!doctype html>
-<html lang="fr" class="min-h-screen">
-  <head>
-    <meta charset="UTF-8" />
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Akhy Potter</title>
-  </head>
-  <body class="min-h-screen flex flex-col">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akhy Potter - Détails</title>
+</head>
+<body id="body" class="min-h-screen flex flex-col bg-default">
     <main class="flex flex-col flex-1">
-      <header class="flex flex-row gap-10 items-center bg-slate-900 p-10 border-b-2 border-slate-800">
+      <header class="flex flex-row gap-10 items-center bg-slate-900 p-10 fixed left-0 top-0 right-0 z-10 shadow-xl border-b-2 border-slate-800">
         <a href="index.html"><h1 class="font-bold text-yellow-300">Akhy Potter</h1></a>
         <nav>
           <ul class="flex flex-row gap-15 text-xl font-semibold text-white/75">
@@ -19,20 +19,18 @@
           </ul>
         </nav>
       </header>
-
-      <div class="flex-1 relative bg-[url('./src/assets/img/harry_potter_resized_970x493.png')] bg-cover bg-no-repeat flex items-center justify-center p-10">
-        <a href="accueil.html" class="text-2xl italic text-white bg-black/50 p-6 rounded-lg hover:scale-103 transition duration-400 ease-in-out">
-          “Les mots sont, à mon avis, pas si humbles, 
-          notre source de magie la plus inépuisable, 
-          capable à la fois d'infliger du mal et d'y remédier." <span class="font-medium text-3xl text-yellow-300">- Akhy Dumbledor</span>
-        </a>
-      </div>
+      
+      <div class="container-detailed-card"></div>
 
     <footer class="text-center bg-gray-950 border-t-2 border-gray-900 text-white p-10 ">
       <p>Tarik AMiMiR le sorcier d'Al Hoceima</p>
     </footer>
     </main>
 
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+    <script type="module" src="./src/details.ts"></script>
+    <script type="module" src="./src/livres.ts"></script>
+    <script type="module" src="./src/films.ts"></script>
+
+
+    
 </html>
