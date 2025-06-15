@@ -8,7 +8,10 @@ const header  = ToolBox.createHeader(["header", "flex", "items-center", "justify
 ToolBox.createH1("Abi Potter", ["h1Header", "text-2xl", "font-bold", "text-yellow-500", "flex", "items-center", "gap-2"], header)
 const divButtonHeader = ToolBox.createDiv(["divButtonHeader", "gap-6", "text-xl", "mr-15"], header)
 ToolBox.createButtonA("Accueil", ["buttonAccueilHeader", "gap-1", "hover:text-yellow-400", "transition", "mr-5"], divButtonHeader)
-ToolBox.createButtonA("Les maisons", ["buttonMaisonHeader", "gap-1", "hover:text-yellow-400", "transition", "mr-5"], divButtonHeader)
+const buttonMaison = ToolBox.createButtonA("Les maisons", ["buttonMaisonHeader", "gap-1", "hover:text-yellow-400", "transition", "mr-5"], divButtonHeader)
+buttonMaison.addEventListener("click", () => {
+    window.location.href = "/maison.html";
+})
 ToolBox.createButtonA("Les Films", ["buttonFilmHeader", "gap-1", "hover:text-yellow-400", "transition", "mr-5"], divButtonHeader)
 ToolBox.createButtonA("Les Livres", ["buttonLivreHeader", "gap-1", "hover:text-yellow-400", "transition", "mr-5"], divButtonHeader)
 
