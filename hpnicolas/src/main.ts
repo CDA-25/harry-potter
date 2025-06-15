@@ -1,18 +1,84 @@
 import './style.css'
 
+class Header {
+    display: string
+    href: string
+
+    constructor(
+      display: string
+    ) {
+      this.display = display
+      this.href = `/${display.toLowerCase()}.html`
+    }
+    classOutput() {
+      return this
+    }
+  }
+
+
+function header() {
+  
+  let headerNav = document.createElement("nav")
+  headerNav.id = "headerNav"
+  headerNav.classList.add(
+    "bg-amber-400",
+    "flex",
+    "justify-around",
+    "items-center",
+    "w-[100%]",
+    "h-[2rem]"
+  )
+  document.body.appendChild(headerNav)
+  
+  let headerMenus = [
+    "Accueil", 
+    "Perso", 
+    "Books", 
+    "Movies"
+  ]
+
+  headerMenus.forEach(element => {
+    let menu = new Header(element)
+    menu = menu.classOutput()
+    
+    let linkDiv = document.createElement("div")
+    linkDiv.id = `navLink${menu.display}`
+    headerNav.appendChild(linkDiv)
+    
+    let link = document.createElement("a")
+    link.href = menu.href
+    link.textContent = menu.display
+    linkDiv.appendChild(link)
+
+  })
+}
+
+header()
+
 
 let currentURL: string = window.location.pathname
 
 switch (currentURL) {
-  case "/accueil.html": {
-    console.log("accueil")
+  case "/accueil.html":
+  case "/": {
+    let homePage = document.createElement("div")
+    homePage.id = "homePage"
+    homePage.classList.add(
+      "bg-red-800"
+    )
+    homePage.textContent = "c'est l'accueil."
+    document.body.appendChild(homePage)
 
     break;
   }
 
   case "/perso.html": {
-    document.body.classList.add("bg-gray-800")
-
+    document.body.classList.add(
+      "bg-gray-800",
+      "flex",
+      "justify-around",
+      "flex-wrap"
+    )
 
     class Perso {
       name: string;
@@ -38,13 +104,14 @@ switch (currentURL) {
           "p-[15px]",
           "border",
           "flex",
-          "justify-between",
+          "justify-around",
+          "flex-wrap",
           "items-center",
-          "w-200",
+          "w-[200px]",
+          "h-[250px]",
           "rounded",
           "m-10"
         )
-
 
           let nameContent = document.createElement("div")
           nameContent.id = "nameContent"
@@ -125,32 +192,24 @@ switch (currentURL) {
         let bookPage = document.createElement("div")
         bookPage.id = "books"
         bookPage.classList.add("bg-blue-100")
-        bookPage.textContent = `${order}, ${pages}, ${title}, ${release}}`
-
-
-        
+        bookPage.textContent = `${order}, ${pages}, ${title}, ${release}` 
 
         let imageDiv = document.createElement("div")
         imageDiv.id = "imgDiv"
         document.body.appendChild(bookPage)
-
 
         let image = document.createElement("img")
         image.src = cover
         image.id = "bookimg"
         image.classList.add("w-100")
         imageDiv.appendChild(image)
-
         bookPage.appendChild(imageDiv)
-
         document.body.appendChild(bookPage)
-
-        
+       
       }
 
     }
-    
-    
+      
     const fetchAPIBooks = async (): Promise<any[]> => {
       const res = await fetch("https://potterhead-api.vercel.app/api/books");
       const books = await res.json();
@@ -175,36 +234,20 @@ switch (currentURL) {
     charsList();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     break;
+  }
+  default: {
+    let notFound = document.createElement("div")
+    notFound.id = "notFound"
+    notFound.classList.add(
+      "bg-orange-200",
+      "text-[3rem]",
+      "flex",
+      "justify-center"
+      
+    )
+    notFound.textContent = "Cette page n'a pas été trouvée. Peut-être qu'elle est cachée pour les moldus.."
+    document.body.appendChild(notFound)
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
