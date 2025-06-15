@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo-hp.jpg" />
+    <link rel="stylesheet" href="src/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="/src/main.ts"></script>
+    <title>Harry Potter</title>
+  </head>
+  <body>
+    <header class="border-b-2 border-b-stone-700 shadow-md bg-stone-100 px-8 py-4">
+      <div class="flex justify-between mx-10 mt-5">
+        <h1 class="cinzel text-4xl">Personnages</h1>
+        <div>
+          <ul class="flex gap-6 text-2xl cinzel">
+            <li> <a href="index.html">Accueil</a></li>
+            <li> <a href="maisons.html">Maisons</a></li>
+            <li> <a href="films.html">Films</a></li>
+            <li> <a href="livres.html">Livres</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main class="bg-[#cbbeb5]">
+      <div id="listeDeroulante" class="text-center">
+        <label for="house" class="block text-[#3b2f2f] font-serif text-lg mb-2">
+  Choisir une maison :
+</label>
+
+<select
+  id="house"
+  name="house"
+  class="w-50 p-2 text-center border-2 border-[#5c4033] rounded-md bg-[#f4f1ea] text-[#3b2f2f] font-serif shadow focus:outline-none focus:ring-2 focus:ring-[#5c4033]"
+>
+  <option value="">-- Sélectionner --</option>
+  <option value="Gryffindor">Gryffondor</option>
+  <option value="Hufflepuff">Poufsouffle</option>
+  <option value="Ravenclaw">Serdaigle</option>
+  <option value="Slytherin">Serpentard</option>
+</select>
+      </div>
+      <div id="HarryPotter_container" class="flex flex-wrap justify-center p-4"></div>
+    </main>
+    <footer class="cinzel border-t-2 border-t-stone-700 shadow-md bg-stone-100 px-8 py-4 mt-20">
+      <h2>Site crée par Ryad El Mekki</h2>
+    </footer>
+  </body>
+</html>
