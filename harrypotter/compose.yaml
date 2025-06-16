@@ -4,8 +4,8 @@ services:
       context: .
       target: dev
       dockerfile: Dockerfile
-    image: happypotter:dev
-    container_name: happypotter_dev
+    image: happypotter2:dev
+    container_name: happypotter2_dev
     volumes:
       - ./:/app
     ports:

@@ -2,6 +2,7 @@ FROM node:22.16-alpine3.22 AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm i
+# pas de ci car il manque le package-lock.json
 
 FROM build AS dev
 WORKDIR /app
