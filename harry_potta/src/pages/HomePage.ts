@@ -8,7 +8,7 @@ export async function HomePage(): Promise<string> {
   return `
     <section class="grid grid-cols-4 gap-4 p-4">
       ${characters.map((character: Character) => `
-        <div class="bg-white shadow p-4 rounded cursor-pointer hover:shadow-lg"
+        <div class="bg-white shadow p-4 rounded cursor-pointer hover:scale-105 transition"
              onclick="location.hash = '#/character?name=${encodeURIComponent(character.name)}'">
           <img src="${character.imageUrl}" alt="${character.name}" class="w-full h-60 object-cover mb-2 rounded">
           <h2 class="text-lg font-bold">${character.name}</h2>
