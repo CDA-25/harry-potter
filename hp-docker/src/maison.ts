@@ -42,6 +42,7 @@ async function displayCharactersByHouse(house: string) {
         })
 
         container.appendChild(card)
+        container.classList.remove('mb-131')
     })
 }
 
