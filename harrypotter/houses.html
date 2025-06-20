@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harry PasteK - Maisons</title>
+  </head>
+  <body class="bg-amber-100">
+    <div id="app">
+      <header class="bg-amber-200" id="header">
+        <ul class="flex justify-between items-center ml-3.5 mr-3.5">
+          <img class="h-12" src="/src/assets/img/logo.png" alt="">
+          <li class="magik"><a href="index.html">Accueil</a></li>
+          <li class="magik"><a href="houses.html">Maisons</a></li>
+          <li class="magik"><a href="films.html">Films</a></li>
+          <li class="magik"><a href="livres.html">Livres</a></li>
+          <div class="bg-white rounded-2xl pl-3">
+            <button type="submit">🔍</button>
+            <span class="border-r-1"></span>
+            <input class="ml-1.5" type="search" name="q" placeholder="Rechercher...">
+          </div>
+        </ul>
+      </header>
+      <img class="w-full h-165" src="./src/assets/img/rrrremy.png" alt="Banner of Harry potter's characters">
+      <h2 class="font-bold text-center mt-10 text-5xl underline underline-offset-4">Les maisons de Poudlard</h2>
+      <div id="houses-container">
+        
+      </div>
+      <footer>
+        <div class="bg-slate-900 flex justify-start p-10">
+          <p class="text-white text-sm">© - Alexis do fogo</p>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="/src/houses.ts"></script>
+  </body>
+</html>
