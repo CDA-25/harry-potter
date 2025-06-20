@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accueil</title>
+    <script type="module" src="src/ts/main.ts"></script>
+  </head>
+  <body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
+
+  <header class="sticky top-0 left-0 w-full bg-indigo-950 text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+       <div class="flex items-center space-x-2">
+          <img src="./public/logo.png" alt="Logo Harry's Potter" class="w-10 h-10 object-contain" />
+          <h1 class="text-xl font-bold">Harry's Potter</h1>
+       </div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html" class="hover:underline">Personnages</a></li>
+          <li><a href="houses.html" class="hover:underline">Maisons</a></li>
+          <li><a href="movies.html" class="hover:underline">Films</a></li>
+          <li><a href="books.html" class="hover:underline">Livres</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <section class="max-w-4xl mx-auto p-8 text-center">
+      <h2 class="text-3xl font-bold mb-4">Les personnages</h2>
+      <p class="text-lg my-10">Ils sont tous là ces gros pd de magiciens, vrais hommes tapent au canif et avec sa queue</p>
+       <div id="characters-container" class="grid grid-cols-4 gap-y-6 gap-x-8">
+
+       </div>
+    </section>
+  </main>
+
+  <footer class="sticky bottom-0 left-0 w-full bg-indigo-950 text-white py-4 text-left px-15">
+    <p>Gaël Pardonnet</p>
+  </footer>
+
+</body>
+</html>
