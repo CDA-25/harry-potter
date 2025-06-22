@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HP Universe</title>
+  </head>
+  <body>
+    <header class="flex items-center justify-between p-4 bg-white text-black">
+      <img src="./images/pngegg.png" alt="logo HP" class="h-40" />
+      <nav aria-label="Navigation principale">
+        <ul class="flex space-x-6 text-lg font-semibold uppercase">
+          <li>
+            <a href="./index.html" class="hover:text-yellow-400">Accueil</a>
+          </li>
+          <li>
+            <a href="./movies.html" class="hover:text-yellow-400">Films</a>
+          </li>
+          <li>
+            <a href="./books.html" class="hover:text-yellow-400">Livres</a>
+          </li>
+          <li>
+            <a href="./houses.html" class="hover:text-yellow-400">Maisons</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div id="app"></div>
+      <div class="character_container"></div>
+    </main>
+    <footer class="bg-black text-white p-6 mt-12">
+      <div class="flex flex-row justify-between items-center">
+        <h1 class="text-xl font-bold">Océane NADIR</h1>
+        <span class="text-sm text-gray-400"
+          >Copyright &copy; Tous droits réservés.</span
+        >
+        <nav aria-label="Navigation footer">
+          <ul class="flex space-x-6 text-sm font-semibold uppercase">
+            <li>
+              <a href="./index.html" class="hover:text-yellow-400">Accueil</a>
+            </li>
+            <li>
+              <a href="./movies.html" class="hover:text-yellow-400">Films</a>
+            </li>
+            <li>
+              <a href="./books.html" class="hover:text-yellow-400">Livres</a>
+            </li>
+            <li>
+              <a href="./houses.html" class="hover:text-yellow-400">Maisons</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

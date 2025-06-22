@@ -1,0 +1,17 @@
+services:
+  harryp:
+    build:
+      context: .
+      target: dev
+      dockerfile: Dockerfile
+    image: happypotter2:dev
+    container_name: happypotter2_dev
+    volumes:
+      - ./:/app
+    ports:
+      - '5173:5173'
+#       image : nom de l'image qu'on va créer, évite d'avoir des doublons d'images
+#       container name : le nom du container
+
+#       le volume c'est le lien symbolique entre l'ordinateur et le containeur, c'est une façon de faire, il y en a plusieurs
+#       ~ ./:/app fait un mirroir

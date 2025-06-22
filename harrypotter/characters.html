@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Découvrez l’univers de Harry Potter à travers les films, livres et maisons."
+    />
+    <title>HP Universe</title>
+  </head>
+  <body class="bg-black text-white p-6">
+    <header
+      class="sticky top-0 z-50 flex items-center justify-between p-4 bg-white text-black"
+    >
+      <a href="./index.html"
+        ><img src="./images/pngegg.png" alt="logo HP" class="h-40"
+      /></a>
+      <nav aria-label="Navigation principale">
+        <ul class="flex space-x-6 text-lg font-semibold uppercase">
+          <li>
+            <a href="./index.html" class="hover:text-yellow-400">Accueil</a>
+          </li>
+          <li>
+            <a href="./movies.html" class="hover:text-yellow-400">Films</a>
+          </li>
+          <li>
+            <a href="./books.html" class="hover:text-yellow-400">Livres</a>
+          </li>
+          <li>
+            <a href="./houses.html" class="hover:text-yellow-400">Maisons</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="p-4">
+      <h1 class="text-3xl font-bold text-center text-white mb-6">
+        Détails du Personnage
+      </h1>
+      <div id="" character-details></div>
+      <a href="./index.html">Retour</a>
+
+      <section
+        class="character_container grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+      ></section>
+    </main>
+
+    <footer class="bg-black text-white p-6 mt-12">
+      <div class="flex flex-row justify-between items-center">
+        <h1 class="text-xl font-bold">Océane NADIR</h1>
+        <span class="text-sm text-gray-400"
+          >Copyright &copy; Tous droits réservés.</span
+        >
+        <nav aria-label="Navigation footer">
+          <ul class="flex space-x-6 text-sm font-semibold uppercase">
+            <li>
+              <a href="./index.html" class="hover:text-yellow-400">Accueil</a>
+            </li>
+            <li>
+              <a href="./movies.html" class="hover:text-yellow-400">Films</a>
+            </li>
+            <li>
+              <a href="./books.html" class="hover:text-yellow-400">Livres</a>
+            </li>
+            <li>
+              <a href="./houses.html" class="hover:text-yellow-400">Maisons</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
