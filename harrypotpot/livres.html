@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./public/harry-potter.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harry Potter</title>
+</head>
+
+<body class="bg-blue-950 box-border">
+  <header class="flex justify-center p-5">
+    <ul class="flex items-center justify-between w-full pl-8">
+      <li class="flex-1 text-center text-amber-200 text-2xl hover:underline"><a href="./index.html">
+        <img src="./public/icons8-poudlard-96.png" alt="illustration Poudlard" class="transition-all duration-300 hover:scale-105 cursor-pointer"></a></li>
+      <li class="flex-1 text-center text-amber-200 text-2xl hover:underline"><a href="./maison.html"> Les Maisons</a></li>
+      <li class="flex-1 text-center text-amber-200 text-2xl hover:underline"><a href="./livres.html">Les Livres</a></li>
+      <li class="flex-1 text-center text-amber-200 text-2xl hover:underline"><a href="./films.html">Les Films</a></li>
+    </ul>
+  </header>
+  <main>
+    <section id="books" class="m-5 min-h-screen grid grid-cols-2 gap-2"></section>
+  </main>
+  <footer class="fixed bottom-0 left-0 w-full bg-black/80 text-white p-2">
+    <h1 class="font-harry text-1xl text-blue-400 text-end"> Alice Cordier</h1>
+  </footer>
+  <script type="module" src="/src/pages/books.ts"></script>
+</body>
+
+</html>
