@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/image/logoHP.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harry Potter | Livres</title>
+  </head>
+  <body class="bg-[#530404]">
+
+    <header id="header" class="bg-[#530404] pt-4 pb-0">
+       
+    
+        <div id="nav"></div>
+
+    </header>
+    <h1 class="absolute text-3xl font-extrabold text-white -mt-100 ml-150">
+      Bienvenue dans le monde magique de Harry Potter !
+    </h1>
+
+    <div id="btn"></div>
+    <!-- BARRE DE RECHERCHE -->
+    <div class="max-w-7xl mx-auto px-6 mt-10">
+      <input
+        id="search"
+        type="text"
+        placeholder="Rechercher un livre..."
+        class="w-full max-w-md ml-100 p-4 rounded bg-red-900 text-white border border-red-700 mb-10"
+      />
+
+      <!-- CARTES DES LIVRES -->
+      <div id="cards-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 pb-20"></div>
+    </div>
+    
+
+
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/livrerechercher.ts"></script>
+  </body>
+</html>
